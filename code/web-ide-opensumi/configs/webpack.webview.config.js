@@ -20,6 +20,7 @@ module.exports = {
   output: {
     filename: 'webview.js',
     path: distDir,
+    publicPath: "/opensumi/",
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.less'],
@@ -60,6 +61,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname, '../dist'),
+    publicPath: "/opensumi/",
     disableHostCheck: true,
     port,
     host: '0.0.0.0',
