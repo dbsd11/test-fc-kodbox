@@ -31,5 +31,10 @@ do
         echo "restart php-fpm ..."
         php-fpm7.4 -c /code/php.ini-production -y /code/php-fpm.conf
     fi
-    sleep 10
+    opensumi_server=`ps aux | grep yarn | grep -v grep`
+    if [ ! "$opensumi_server" ]; then
+        echo "restart opensumi_server ..."
+        sh /code/web-ide-opensumi/start.sh
+    fi
+    sleep 100
 done
