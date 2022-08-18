@@ -49,7 +49,7 @@ services:
         name: "test-kodbox-function"
         description: 'kodbox  Function'
         codeUri: './code'
-        runtime: 'nodejs 14'
+        runtime: nodejs14
         timeout: 7200
         memorySize: 3072
         instanceConcurrency: 2
