@@ -13,7 +13,7 @@ module.exports = {
   output: {
     filename: 'worker-host.js',
     path: distDir,
-    publicPath: "/opensumi/"
+    publicPath: "/opensumi"
   },
   target: 'webworker',
   node: {

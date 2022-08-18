@@ -43,7 +43,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: distDir,
-    publicPath: "/opensumi/"
+    publicPath: "/opensumi"
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.less'],
@@ -182,7 +182,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: distDir,
-    publicPath: "/opensumi/",
+    publicPath: "/opensumi",
     port,
     host: '0.0.0.0',
     headers: {

@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: distDir,
-    publicPath: "/opensumi/",
+    publicPath: "/opensumi",
   },
   node: false,
   mode: 'production',
