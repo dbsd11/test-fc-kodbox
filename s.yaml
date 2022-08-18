@@ -63,9 +63,9 @@ services:
         environmentVariables:
           NODE_PATH: /opt/nodejs/node_modules
           PATH: /opt/node-v14.19.1-linux-x64/bin::/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin:/opt/bin
-        Layers: #layer配置
-          - Name: nodejs14_fc_auto_created #  layer名称
-            Version: 1 #  版本
+        layers: #layer配置
+          - name: nodejs14_fc_auto_created #  layer名称
+            version: 1 #  版本
       triggers:
         - name: httpTrigger
           type: http
