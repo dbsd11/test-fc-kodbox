@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const tsConfigPath = path.join(__dirname, '../tsconfig.json');
 const distDir = path.join(__dirname, '..', 'dist/webview');
-const port = 8899;
+const port = 80;
 
 module.exports = {
   entry,
