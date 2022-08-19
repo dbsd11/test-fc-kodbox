@@ -13,8 +13,8 @@ export async function renderApp(opts: IClientAppOpts) {
   const query = new URLSearchParams(window.location.search);
   // 线上的静态服务和 IDE 后端是一个 Server
   const serverPort = process.env.DEVELOPMENT ? 80 : window.location.port;
-  const staticServerPort = process.env.DEVELOPMENT ? 8080 : window.location.port;
-  const webviewEndpointPort = process.env.DEVELOPMENT ? 8899 : 80;
+  const staticServerPort = process.env.DEVELOPMENT ? 80 : window.location.port;
+  const webviewEndpointPort = process.env.DEVELOPMENT ? 80 : 80;
   opts.workspaceDir = opts.workspaceDir || query.get('workspaceDir') || process.env.WORKSPACE_DIR;
 
   opts.extensionDir = opts.extensionDir || process.env.EXTENSION_DIR;
