@@ -14,7 +14,6 @@ module.exports = {
   output: {
     filename: 'ext.process.js',
     path: distDir,
-    publicPath: "/opensumi",
   },
   devtool: 'null',
   mode: 'production',
