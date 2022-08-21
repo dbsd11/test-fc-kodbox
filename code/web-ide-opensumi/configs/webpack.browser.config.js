@@ -122,7 +122,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/',
+              outputPath: '/fonts',
             },
           },
         ],
@@ -161,10 +161,10 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.WORKSPACE_DIR': JSON.stringify(
-        isDevelopment ? path.join(__dirname, '..', 'workspace') : process.env['WORKSPACE_DIR'],
+        isDevelopment ? path.join(__dirname, '..', 'workspace') : path.join(__dirname, '..', 'workspace'),
       ),
       'process.env.EXTENSION_DIR': JSON.stringify(
-        isDevelopment ? path.join(__dirname, '..', 'extensions') : process.env['EXTENSION_DIR'],
+        isDevelopment ? path.join(__dirname, '..', 'extensions') : path.join(__dirname, '..', 'extensions'),
       ),
       'process.env.REVERSION': JSON.stringify(idePkg.version || 'alpha'),
       'process.env.DEVELOPMENT': JSON.stringify(!!isDevelopment),
