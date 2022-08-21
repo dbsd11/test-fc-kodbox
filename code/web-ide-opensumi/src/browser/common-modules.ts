@@ -35,7 +35,7 @@ import { VariableModule } from '@opensumi/ide-variable/lib/browser';
 import { KeymapsModule } from '@opensumi/ide-keymaps/lib/browser';
 import { MonacoEnhanceModule } from '@opensumi/ide-monaco-enhance/lib/browser/module';
 import { OpenVsxExtensionManagerModule } from '@opensumi/ide-extension-manager/lib/browser';
-import { TerminalNextModule } from '@opensumi/ide-terminal-next/lib/browser';
+// import { TerminalNextModule } from '@opensumi/ide-terminal-next/lib/browser';
 import { CommentsModule } from '@opensumi/ide-comments/lib/browser';
 import { ClientAddonModule } from '@opensumi/ide-addons/lib/browser';
 import { TaskModule } from '@opensumi/ide-task/lib/browser';
@@ -75,7 +75,7 @@ export const CommonBrowserModules: ConstructorOf<BrowserModule>[] = [
   DebugModule,
   VariableModule,
   KeymapsModule,
-  TerminalNextModule,
+  // TerminalNextModule,
   ExtensionModule,
   OpenVsxExtensionManagerModule,
   MonacoEnhanceModule,
