@@ -24,7 +24,7 @@ access: "{{ access }}"
 vars:
   region: "cn-beijing" 
   service:
-    name: "test-kodbox-service"
+    name: "test-webide-service"
     description: 'NAS+OSS UI file manager be deployed by Serverless Devs'
     nasConfig: auto
 
@@ -46,8 +46,8 @@ services:
       region: ${vars.region}
       service: ${vars.service}
       function:
-        name: "test-kodbox-function"
-        description: 'kodbox  Function'
+        name: "test-webide-function"
+        description: 'webide  Function'
         codeUri: './code'
         runtime: custom
         timeout: 7200
@@ -92,7 +92,7 @@ services:
       region: ${vars.region}
       service: ${vars.service}
       function:
-        name: keep-warm
+        name: keep-warm-webide
         description: 'Serverless Devs Web Framework Helper Function'
         codeUri: './helper'
         handler: index.handler
