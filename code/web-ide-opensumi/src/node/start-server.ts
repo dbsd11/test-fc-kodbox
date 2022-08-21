@@ -51,7 +51,7 @@ export async function startServer(arg1: NodeModule[] | Partial<IServerAppOpts>) 
   const server = http.createServer(app.callback());
 
   if (process.env.NODE_ENV === 'production') {
-    app.use(koaStatic(path.join(__dirname, '../../dist')));
+    app.use(koaStatic(path.join(__dirname, '../../dist/opensumi')));
   }
 
   await serverApp.start(server);
