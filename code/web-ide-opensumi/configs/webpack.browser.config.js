@@ -161,10 +161,10 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.WORKSPACE_DIR': JSON.stringify(
-        isDevelopment ? path.join(__dirname, '..', 'workspace') : path.join(__dirname, '..', 'workspace'),
+        isDevelopment ? path.join(__dirname, '..', 'workspace') : path.join(__dirname, '..', '..', 'workspace'),
       ),
       'process.env.EXTENSION_DIR': JSON.stringify(
-        isDevelopment ? path.join(__dirname, '..', 'extensions') : path.join(__dirname, '..', 'extensions'),
+        isDevelopment ? path.join(__dirname, '..', 'extensions') : path.join(__dirname, '..', '..', 'extensions'),
       ),
       'process.env.REVERSION': JSON.stringify(idePkg.version || 'alpha'),
       'process.env.DEVELOPMENT': JSON.stringify(!!isDevelopment),

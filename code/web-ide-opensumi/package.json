@@ -16,10 +16,11 @@
     "compile:ext-host": "cross-env NODE_ENV=production webpack --config ./configs/webpack.ext-host.config.js",
     "compile:webview": "cross-env NODE_ENV=production webpack --config ./configs/webpack.webview.config.js",
     "build": "cross-env NODE_ENV=production NODE_OPTIONS=--max_old_space_size=5120 run-p compile:browser compile:node compile:worker-host compile:ext-host compile:webview",
-    "start": "run-p start:client start:server start:webview",
-    "start:client": "cross-env NODE_ENV=production webpack-dev-server --config ./configs/webpack.browser.config.js --progress --color --watch",
+    "start": "run-p start:server start:webview",
+    "local-start": "run-p start:client start:server start:webview",
+    "start:client": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.browser.config.js --progress --color --watch",
     "start:webview": "webpack-dev-server --config ./configs/webpack.webview.config.js",
-    "start:server": "cross-env NODE_ENV=production EXT_MODE=js KTLOG_SHOW_DEBUG=1 node --inspect=9991 -r ts-node/register -r tsconfig-paths/register ./src/node/index.ts"
+    "start:server": "cross-env EXT_MODE=js KTLOG_SHOW_DEBUG=1 node --inspect=9991 -r ts-node/register -r tsconfig-paths/register ./src/node/index.ts"
   },
   "resolutions": {
     "vscode-languageserver-protocol": "3.16.0",
