@@ -23,7 +23,7 @@ export async function renderApp(opts: IClientAppOpts) {
   opts.extWorkerHost = opts.extWorkerHost || process.env.EXTENSION_WORKER_HOST || `http://${hostname}:${staticServerPort}/opensumi/worker-host.js`;
   opts.staticServicePath = `http://${hostname}:${serverPort}`;
   const anotherHostName = process.env.WEBVIEW_HOST || hostname;
-  opts.webviewEndpoint = `http://${anotherHostName}:${webviewEndpointPort}/webview`;
+  opts.webviewEndpoint = `http://${anotherHostName}:${webviewEndpointPort}/opensumi/webview`;
   opts.layoutComponent = ToolbarActionBasedLayout;
   const app = new ClientApp(opts);
 
