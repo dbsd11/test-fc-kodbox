@@ -6,7 +6,7 @@ const esbuild = require('esbuild');
 const { resolveTSConfig } = require('./utils');
 
 const tsConfigPath = path.join(__dirname, '..', 'tsconfig.json');
-const distDir = path.join(__dirname, '..', 'dist');
+const distDir = path.join(__dirname, '..', 'dist/opensumi');
 
 module.exports = {
   entry: require.resolve('@opensumi/ide-extension/lib/hosted/worker.host-preload.js'),

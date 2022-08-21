@@ -13,7 +13,7 @@ const { resolveTSConfig } = require('./utils');
 
 const tsConfigPath = path.join(__dirname, '../tsconfig.json');
 const srcDir = path.join(__dirname, '..', 'src', 'browser');
-const distDir = path.join(__dirname, '..', 'dist');
+const distDir = path.join(__dirname, '..', 'dist/opensumi');
 const port = 8080;
 
 const isDevelopment =
