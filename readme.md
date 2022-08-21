@@ -1,99 +1,51 @@
-# start-fc-kodbox 帮助文档
+# test-webide-serverless
 
-<p align="center" class="flex justify-center">
-    <a href="https://www.serverless-devs.com" class="ml-1">
-    <img src="http://editor.devsapp.cn/icon?package=start-fc-kodbox&type=packageType">
-  </a>
-  <a href="http://www.devsapp.cn/details.html?name=start-fc-kodbox" class="ml-1">
-    <img src="http://editor.devsapp.cn/icon?package=start-fc-kodbox&type=packageVersion">
-  </a>
-  <a href="http://www.devsapp.cn/details.html?name=start-fc-kodbox" class="ml-1">
-    <img src="http://editor.devsapp.cn/icon?package=start-fc-kodbox&type=packageDownload">
-  </a>
-</p>
+> ## 应用背景
+>
+> **实现一个 Serverless 架构的 Web IDE 服务**
+>
+> 在云的时代，IDE 越来越向着轻量化，分布式的方向演进。Vscode，IntelliJ Idea 等知名产品都推出了 Web IDE 版本。在小程序，Low code/No code，在线编程教育，前端一体化开发，大数据处理等领域，Web IDE 都体现了越来越重要的价值。Web IDE 的使用通常是多租户，碎片化的。基于传统架构，要实现一个多租安全，可扩展，高性能，低成本的 IDE 服务很复杂。而借助 Serverless 架构的，我们将大幅降低难度。我们将提供一个 Web IDE 服务的参考实现，您在此基础上进行扩展，发挥您的创意，创造一个独特的 Web IDE 服务！
+>
+> ## 技术架构实现、原理以及亮点
+>
+> * 强大的web ide能力，支持python、java、nodejs、php等语言的编程环境，支持代码断点调试，支持版本管理
+> * 用户身份认证
+> * 高效的文件分享
+> * 支持多种云存储，如oss、s3等
 
-<description>
+###### 原理：
 
-> ***快速部署一个 NAS+OSS UI文件管理系统到阿里云函数计算***
+    web ide的开源软件有很多，阿里和蚂蚁开源的[opensumi](https://github.com/opensumi/ide-startup) 就是一个很理想的开源web ide。可以通过请求参数传参workspaceDir，来约束web ide的工作路径，在多租户场景可以用这个请求参数来实现多用户访问的隔离。同时基于此项目的[git]()插件，通过git源代码管理，可实现多用户分布式开发，同时基于git ops实现服务部署的ci/cd。
 
-</description>
+    但是仅仅有web ide还不够，如果项目中涉及较大文件的读写，比如数据处理项目对较大量训练数据的依赖，无法单单靠git去拉取整个数据文件。同时，如果有多用户间文件共享的需求，也无法靠git去灵活的实现。需要有另一套非源代码的文件管理服务。[kodbox](https://github.com/kalcaddle/kodbox) 是一款开源的基于web的文件管理工具，其强大的文件管理服务，可以很好的弥补web ide文件管理效率低的问题。
 
-<table>
+    综上两点，可以考虑采用文件管理+web ide的方式，实现一个基于web的高效的ide。
 
-## 前期准备
-使用该项目，推荐您拥有以下的产品权限 / 策略：
+###### 架构图如下：
 
-| 服务/业务 | 函数计算 |  硬盘挂载 |  VPC |  其它 |     
-| --- |  --- |   --- |   --- |   --- |   
-| 权限/策略 | AliyunFCFullAccess |  AliyunNASFullAccess |  AliyunVPCFullAccess |  AliyunECSFullAccess |     
+![1661085816499](image/README/1661085816499.png)
 
+###### 亮点：搭开源工具的顺风车，随着开源工具迭代完善，也会支持更多功能。无需重复造轮子。同时通过部署在aliyun function compute上，实现服务的可扩展，高性能和低成本。
 
-</table>
+## 使用说明
 
-<codepre id="codepre">
+1. 部署
+   按如下图，创建函数计算应用：
+2. 修改函数的runtime为nodejs14
+4. 点击应用地址跳转应用主页，登录管理员账号：admin/admin
+5. 打开web ide工具：{应用地址}/opensumi/index.html
+6. 只通过web ide访问对应workspace空间：{应用地址}/opensumi/index.html?workspaceDir=xxx。
+   尝试创建文件，看是否可以编辑
 
-</codepre>
+## 实现说明
 
-<deploy>
+    由于时间紧张，目前只是简单的做了服务部署在serverless上的接入，无法完全满足多租户、安全的需求。未实现的功能如下：
 
-## 部署 & 体验
+1. kotbox和opensumi两者目前并未打通，使用起来不方便
+2. 没有实现从kotbox跳转opensumi的用户身份校验
+3. 目前是通过禁止web ide的终端功能避免非管理员用户提权，针对普通用户也需要使用终端的场景需要进行仔细考虑设计。
 
-<appcenter>
+## 参考资料
 
-- :fire: 通过 [Serverless 应用中心](https://fcnext.console.aliyun.com/applications/create?template=start-fc-kodbox) ，
-[![Deploy with Severless Devs](https://img.alicdn.com/imgextra/i1/O1CN01w5RFbX1v45s8TIXPz_!!6000000006118-55-tps-95-28.svg)](https://fcnext.console.aliyun.com/applications/create?template=start-fc-kodbox)  该应用。 
-
-</appcenter>
-
-- 通过 [Serverless Devs Cli](https://www.serverless-devs.com/serverless-devs/install) 进行部署：
-    - [安装 Serverless Devs Cli 开发者工具](https://www.serverless-devs.com/serverless-devs/install) ，并进行[授权信息配置](https://www.serverless-devs.com/fc/config) ；
-    - 初始化项目：`s init start-fc-kodbox -d start-fc-kodbox`   
-    - 进入项目，并进行项目部署：`cd start-fc-kodbox && s deploy -y`
-
-</deploy>
-
-<appdetail id="flushContent">
-
-
-## 项目使用注意事项
-
-1. 项目Yaml中，声明了`actions`，并且将 Web UI FileManager 工程上传到 NAS，执行函数的时候， nginx 配置 `root /mnt/auto/.fc-nas-filemgr;` 指定了 web 的目录在 NAS 上。
-2. 该示例中默认使用 sqlite 数据库 (位于 NAS)
-
-## 应用详情
-
-本项目是将世界上最好用的 UI FileManager 项目部署到阿里云 Serverless 平台（函数计算 FC）。
-
-通过 Serverless Devs 开发者工具，您只需要几步，就可以体验 Serverless 架构，带来的降本提效的技术红利。
-
-部署完成之后，您可以看到系统返回给您的案例地址，例如：
-
-![图片alt](https://img.alicdn.com/imgextra/i1/O1CN01FbMHNY1PvcSGTBzmB_!!6000000001903-2-tps-2520-920.png)
-
-此时，打开案例地址， 使用 admin/admin 登录:
-
-![](https://img.alicdn.com/imgextra/i3/O1CN01WRjMv428OKNAu7gjq_!!6000000007922-2-tps-1733-1007.png)
-
-添加 OSS Bucket 管理：
-![](https://img.alicdn.com/imgextra/i2/O1CN01e6dygX1znDLioRfQe_!!6000000006758-2-tps-1210-756.png)
-
-# 参考
-使用开源的 UI 文件管理系统: [https://github.com/kalcaddle/kodbox](https://github.com/kalcaddle/kodbox)
-
-</appdetail>
-
-<devgroup>
-
-## 开发者社区
-
-您如果有关于错误的反馈或者未来的期待，您可以在 [Serverless Devs repo Issues](https://github.com/serverless-devs/serverless-devs/issues) 中进行反馈和交流。如果您想要加入我们的讨论组或者了解 FC 组件的最新动态，您可以通过以下渠道进行：
-
-<p align="center">
-
-| <img src="https://serverless-article-picture.oss-cn-hangzhou.aliyuncs.com/1635407298906_20211028074819117230.png" width="130px" > | <img src="https://serverless-article-picture.oss-cn-hangzhou.aliyuncs.com/1635407044136_20211028074404326599.png" width="130px" > | <img src="https://serverless-article-picture.oss-cn-hangzhou.aliyuncs.com/1635407252200_20211028074732517533.png" width="130px" > |
-|--- | --- | --- |
-| <center>微信公众号：`serverless`</center> | <center>微信小助手：`xiaojiangwh`</center> | <center>钉钉交流群：`33947367`</center> | 
-
-</p>
-
-</devgroup>
+1. [kotbox官网](http://kodcloud.com/)
+2. [opensumi官网](https://opensumi.com/zh)
