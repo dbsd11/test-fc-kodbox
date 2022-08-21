@@ -60,7 +60,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, '../dist'),
+    contentBase: distDir,
     publicPath: "/opensumi",
     disableHostCheck: true,
     port,
