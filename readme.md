@@ -34,18 +34,19 @@
    ![1661088641204](image/README/1661088641204.png)
 2. 修改函数的runtime为nodejs14
    ![1661087658890](image/README/1661087658890.png)
-4. 点击应用地址跳转应用主页，登录管理员账号：admin/admin
+3. 点击应用地址跳转应用主页，登录管理员账号：admin/admin
    ![1661135954636](image/README/1661135954636.png)
-5. 打开web ide工具：{应用地址}/opensumi/index.html
+4. 打开web ide工具：{应用地址}/opensumi/index.html
    如：
-   ```
+```
 http://test-webide-function.test-webide-service.1117336245552676.cn-beijing.fc.devsapp.net/opensumi/index.html
-   ```
-6. 只通过web ide访问对应workspace空间：{应用地址}/opensumi/index.html?workspaceDir=xxx。
+```
+
+ 5. 只通过web ide访问对应workspace空间：{应用地址}/opensumi/index.html?workspaceDir=xxx。
    如：
-   ```
-http://test-webide-function.test-webide-service.1117336245552676.cn-beijing.fc.devsapp.net/opensumi/index.html?workspaceDir=/tmp
-   ```
+```
+   http://test-webide-function.test-webide-service.1117336245552676.cn-beijing.fc.devsapp.net/opensumi/index.html?workspaceDir=/tmp
+```
    尝试创建文件，看是否可以编辑
 
 ## 实现说明
