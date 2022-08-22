@@ -41,8 +41,7 @@
 ```
 http://test-webide-function.test-webide-service.1117336245552676.cn-beijing.fc.devsapp.net/opensumi/index.html
 ```
-
- 5. 只通过web ide访问对应workspace空间：{应用地址}/opensumi/index.html?workspaceDir=xxx。
+5. 只通过web ide访问对应workspace空间：{应用地址}/opensumi/index.html?workspaceDir=xxx。
    如：
 ```
    http://test-webide-function.test-webide-service.1117336245552676.cn-beijing.fc.devsapp.net/opensumi/index.html?workspaceDir=/tmp
