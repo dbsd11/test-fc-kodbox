@@ -33,11 +33,13 @@
    按如下图，创建函数计算应用：
    ![1661088641204](image/README/1661088641204.png)
 2. 修改函数的runtime为nodejs14
-   ![1661087658890](image/README/1661087658890.png)
+   ![1661144373671](image/README/1661144373671.jpg)
+   ![1661144408573](image/README/1661144408573.jpg)
 3. 点击应用地址跳转应用主页，登录管理员账号：admin/admin
    ![1661135954636](image/README/1661135954636.png)
 4. 打开web ide工具：{应用地址}/opensumi/index.html
    如：
+   
 ```
 http://test-webide-function.test-webide-service.1117336245552676.cn-beijing.fc.devsapp.net/opensumi/index.html
 ```
