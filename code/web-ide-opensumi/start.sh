@@ -9,4 +9,4 @@ fi
 
 cp -r extensions /root/.sumi/
 
-nohup yarn start >/dev/null 2>&1 &
+nohup node dist-node/server/index.js >/dev/null 2>&1 &
